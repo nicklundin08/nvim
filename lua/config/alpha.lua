@@ -1,4 +1,4 @@
-ocal M = {}
+local M = {}
 
 function M.setup()
   local status_ok, alpha = pcall(require, "alpha")
