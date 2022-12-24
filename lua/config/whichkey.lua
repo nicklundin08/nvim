@@ -34,6 +34,7 @@ function M.setup()
 
     b = {
       name = "Buffer",
+			C = { "<Cmd>bp<bar>sp<bar>bn<bar>bd<CR>", "Close buffer but not window" },
       c = { "<Cmd>bd!<Cr>", "Close current buffer" },
       D = { "<Cmd>%bd|e#|bd#<Cr>", "Delete all buffers" },
 			l = { "<cmd>ls<cr>", "List"},
