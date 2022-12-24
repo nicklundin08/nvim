@@ -20,13 +20,25 @@ function M.setup()
   }
 
   local mappings = {
-    ["w"] = { "<cmd>update!<CR>", "Save" },
-    ["q"] = { "<cmd>q!<CR>", "Quit" },
+    ["Q"] = { "<cmd>q!<CR>", "Quit (force)" },
+    ["q"] = { "<cmd>q<CR>", "Quit" },
+		["s"] = { "<cmd>w<CR>", "Write"},
+
+    w = {
+      name = "Window",
+      q = { "<cmd>wq<CR>", "Save and quit" },
+			t = { "<cmd>NERDTreeFocus<cr>", "Tree"},
+			T = { "<cmd>NERDTreeFind<cr>", "Find in tree"},
+			w = { "<C-w>w>", "Next window"},
+    },
 
     b = {
       name = "Buffer",
       c = { "<Cmd>bd!<Cr>", "Close current buffer" },
       D = { "<Cmd>%bd|e#|bd#<Cr>", "Delete all buffers" },
+			l = { "<cmd>ls<cr>", "List"},
+			n = { "<cmd>bnext<cr>", "Next"},
+			p = { "<cmd>bprevious<cr>", "Previous"},
     },
 
     z = {
@@ -43,15 +55,15 @@ function M.setup()
       s = { "<cmd>Neogit<CR>", "Status" },
     },
 
-    -- f = {
-    --   name = "Find",
-    --   f = { "<cmd>lua require('utils.finder').find_files()<cr>", "Files" },
-    --   b = { "<cmd>FzfLua buffers<cr>", "Buffers" },
-    --   o = { "<cmd>FzfLua oldfiles<cr>", "Old files" },
-    --   g = { "<cmd>FzfLua live_grep<cr>", "Live grep" },
-    --   c = { "<cmd>FzfLua commands<cr>", "Commands" },
-    --   e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    -- },
+    f = {
+      name = "Find",
+      f = { "<cmd>Files<cr>", "Files" },
+			-- b = { "<cmd>FzfLua buffers<cr>", "Buffers" },
+      -- o = { "<cmd>FzfLua oldfiles<cr>", "Old files" },
+      -- g = { "<cmd>FzfLua live_grep<cr>", "Live grep" },
+      -- c = { "<cmd>FzfLua commands<cr>", "Commands" },
+      -- e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    },
   }
 
   whichkey.setup(conf)
