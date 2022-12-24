@@ -69,6 +69,15 @@ function M.setup()
        end,
     }
 
+    -- Tree sitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+       -- run = ":TSUpdate",
+       config = function()
+         require("config.treesitter").setup()
+       end,
+    }
+
     -- FZF
     use { "junegunn/fzf.vim" }
     -- Tree
