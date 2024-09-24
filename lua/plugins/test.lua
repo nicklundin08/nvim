@@ -1,30 +1,15 @@
 return {
-  "nvim-neotest/neotest",
-  dependencies = {
-    "nvim-neotest/nvim-nio",
-    "nvim-lua/plenary.nvim",
-    "antoinemadec/FixCursorHold.nvim",
-    "nvim-treesitter/nvim-treesitter",
-    "haydenmeade/neotest-jest",
-  },
-  config = function()
-    require("neotest").setup({
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "haydenmeade/neotest-jest",
+      "marilari88/neotest-vitest",
+    },
+    opts = {
       adapters = {
-        require("neotest-jest")({
-          jestCommand = "npx jest --verbose --",
-          env = { CI = true },
-          cwd = function(path)
-            return vim.fn.getcwd()
-          end,
-        }),
+        ["neotest-vitest"] = {},
+        ["neotest-jest"] = {},
       },
-    })
-
-    vim.keymap.set("n", "<leader>jf", function()
-      require("neotest").run.run(vim.fn.expand("%"))
-    end, { noremap = true, silent = true, desc = "Run all tests" })
-    vim.keymap.set("n", "<leader>jo", function()
-      require("neotest").output.open({ enter = true })
-    end, { noremap = true, silent = true, desc = "Open test output" })
-  end,
+    },
+  },
 }
